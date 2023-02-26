@@ -36,16 +36,7 @@ class FormularioProdutoActivity : AppCompatActivity() {
         val botaoSalvar = binding.activityFormularioProdutoBotaoSalvar
         val db = AppDatabase.instancia(this)
         val produtoDao = db.produtoDao()
-        lifecycleScope.launch {
 
-            produtoDao.salva(
-                Produto(
-                    nome = "nome 1",
-                    descricao = "desc",
-                    valor = BigDecimal("10.0")
-                )
-            )
-        }
         botaoSalvar.setOnClickListener {
             lifecycleScope.launch{
                 val produtoNovo = criaProduto()
